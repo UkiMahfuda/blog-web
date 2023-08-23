@@ -13,6 +13,48 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route view with parameter
 Route::get('/', function () {
     return view('welcome');
+});
+
+// Route::get('/home', function () {
+//     return view('dasboard.home', [
+//         'name' => 'Uki Mahfuda',
+//         'loc' => 'Bandar Lampung'
+//     ]);
+// });
+
+Route::view(
+    '/home',
+    'dasboard.home',
+    [
+        'name' => 'Uki Mahfuda',
+        'loc' => 'Indonesia'
+    ]
+);
+
+Route::get('/contact/{id}', function ($id) {
+    return view('dasboard.contact', ['id' => $id]);
+});
+
+//Route Parameter
+Route::get('/about/{id}', function ($id) {
+    return 'Hello World' . $id;
+});
+
+//Route Redirect
+// Route::redirect('/home', '/dashboard');
+
+//Route Prefix
+Route::prefix('dashboard')->group(function () {
+    Route::get('/home', function () {
+        return 'Hello World';
+    });
+    Route::get('/about', function () {
+        return 'Hello Me';
+    });
+    Route::get('/contact/{id}', function ($id) {
+        return 'Hello User ' . $id;
+    });
 });
