@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Route view with parameter
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/home', function () {
 //     return view('dasboard.home', [
@@ -25,36 +25,65 @@ Route::get('/', function () {
 //     ]);
 // });
 
-Route::view(
-    '/home',
-    'dasboard.home',
-    [
-        'name' => 'Uki Mahfuda',
-        'loc' => 'Indonesia'
-    ]
-);
+// Route::view(
+//     '/home',
+//     'dasboard.home',
+//     [
+//         'name' => 'Uki Mahfuda',
+//         'loc' => 'Indonesia'
+//     ]
+// );
 
-Route::get('/contact/{id}', function ($id) {
-    return view('dasboard.contact', ['id' => $id]);
-});
+// Route::get('/contact/{id}', function ($id) {
+//     return view('dasboard.contact', ['id' => $id]);
+// });
 
 //Route Parameter
-Route::get('/about/{id}', function ($id) {
-    return 'Hello World' . $id;
-});
+// Route::get('/about/{id}', function ($id) {
+//     return 'Hello World' . $id;
+// });
 
 //Route Redirect
 // Route::redirect('/home', '/dashboard');
 
 //Route Prefix
-Route::prefix('dashboard')->group(function () {
-    Route::get('/home', function () {
-        return 'Hello World';
-    });
-    Route::get('/about', function () {
-        return 'Hello Me';
-    });
-    Route::get('/contact/{id}', function ($id) {
-        return 'Hello User ' . $id;
-    });
+// Route::prefix('dashboard')->group(function () {
+//     Route::get('/home', function () {
+//         return 'Hello World';
+//     });
+//     Route::get('/about', function () {
+//         return 'Hello Me';
+//     });
+//     Route::get('/contact/{id}', function ($id) {
+//         return 'Hello User ' . $id;
+//     });
+// });
+
+//Route Blade template
+Route::get('/', function () {
+    return view('home', [
+        'name' => 'Uki',
+        'role' => 'Admin',
+        'employe' => [
+            'Agus',
+            'Rizky',
+            'Angga',
+            'Putra',
+            'Putri'
+        ],
+        'merchandise' => [
+            'TV',
+            'Handphone',
+            'Laptop',
+            'PC'
+        ]
+    ]);
+});
+
+Route::get('/about', function () {
+    return view('about', ['name' => 'Uki']);
+});
+
+Route::get('/contact', function () {
+    return view('contact', ['phone' => '089612628924', 'name' => 'Uki']);
 });
