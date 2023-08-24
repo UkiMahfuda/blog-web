@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\post;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,20 +72,20 @@ Route::get('/', function () {
             'Angga',
             'Putra',
             'Putri'
-        ],
-        'merchandise' => [
-            'TV',
-            'Handphone',
-            'Laptop',
-            'PC'
         ]
     ]);
 });
 
 Route::get('/about', function () {
-    return view('about', ['name' => 'Uki']);
+    return view('about', [
+        'name' => 'Uki',
+        'desc' => post::all()
+    ]);
 });
 
 Route::get('/contact', function () {
-    return view('contact', ['phone' => '089612628924', 'name' => 'Uki']);
+    return view('contact', [
+        'phone' => '089612628924',
+        'name' => 'Uki'
+    ]);
 });
