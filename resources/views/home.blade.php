@@ -1,7 +1,5 @@
 @extends('layout.mainlayout')
 
-@section('title', 'Home')
-
 @section('content')
     <h4>Selamat Datang, {{ $name }}.</h4>
 

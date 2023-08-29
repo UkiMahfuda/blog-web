@@ -1,8 +1,8 @@
 <?php
 
-use App\Models\post;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +64,7 @@ use Illuminate\Support\Facades\Route;
 //Route Blade template
 Route::get('/', function () {
     return view('home', [
+        'title' => 'Home',
         'name' => 'Uki',
         'role' => 'Admin',
         'employe' => [
@@ -78,14 +79,11 @@ Route::get('/', function () {
 
 Route::get('/about', function () {
     return view('about', [
+        'title' => 'About',
         'name' => 'Uki',
-        'desc' => post::all()
     ]);
 });
 
-Route::get('/contact', function () {
-    return view('contact', [
-        'phone' => '089612628924',
-        'name' => 'Uki'
-    ]);
-});
+Route::get('/blog', [PostController::class, 'index']);
+
+Route::get('/blog/{slug}', [PostController::class, 'show']);

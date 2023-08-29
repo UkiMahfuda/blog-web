@@ -8,9 +8,9 @@
             </button>
             <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link  {{ Request::is('/') ? 'active' : '' }} " href="/">Home</a>
-                    <a class="nav-link  {{ Request::is('/about') ? 'active' : '' }} " href="/about">About</a>
-                    <a class="nav-link  {{ Request::is('/contact') ? 'active' : '' }} " href="/contact">Contact</a>
+                    <a class="nav-link  {{ $title === 'Home' ? 'active' : '' }} " href="/">Home</a>
+                    <a class="nav-link  {{ $title === 'About' ? 'active' : '' }}  " href="/about">About</a>
+                    <a class="nav-link  {{ $title === 'Blog' ? 'active' : '' }}  " href="/blog">Blog</a>
                 </div>
             </div>
         </div>

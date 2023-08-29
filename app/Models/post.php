@@ -2,29 +2,33 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
-class post
+class Post
 {
-    private static $describe
-    = [
+    private static  $blog_post = [
         [
-            'name' => 'Uki Mahfuda',
-            'edu' => 'Banchelor Degree',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, reprehenderit vitae quis autem ad similique.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus nobis sequi cum tenetur. Perspiciatis.'
+            "title" => "Judul Pertama",
+            'slug' => "judul-pertama",
+            "author" => "Uki Mahfuda",
+            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quod ipsa nobis magnam minus illo voluptate sapiente! Eum dicta animi ex doloribus consequatur amet accusantium quis aliquid harum facere deserunt, numquam sint eveniet in quisquam doloremque sapiente magni enim vitae minima sunt cumque. Itaque quo sequi esse repellat a ipsa tempora officia, doloremque molestias! Repellat, molestias officia natus fugit asperiores reiciendis nihil dicta. Fuga molestias architecto voluptatum quo, placeat provident natus porro aliquid enim, asperiores, eveniet dolore at suscipit sint?
+            "
         ],
         [
-            'name' => 'Akhfee Lauki  Mahfuda',
-            'edu' => 'Computer Science',
-            'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, reprehenderit vitae quis autem ad similique.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus nobis sequi cum tenetur. Perspiciatis.'
+            "title" => "Judul Kedua",
+            'slug' => "judul-kedua",
+            "author" => "Akhfee Lauki",
+            "body" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis quod ipsa nobis magnam minus illo voluptate sapiente! Eum dicta animi ex doloribus consequatur amet accusantium quis aliquid harum facere deserunt, numquam sint eveniet in quisquam doloremque sapiente magni enim vitae minima sunt cumque. Itaque quo sequi esse repellat a ipsa tempora officia, doloremque molestias! Repellat, molestias officia natus fugit asperiores reiciendis nihil dicta. Fuga molestias architecto voluptatum quo, placeat provident natus porro aliquid enim, asperiores, eveniet dolore at suscipit sint?
+            "
         ]
     ];
 
     public static function all()
     {
-        return self::$describe;
+        return collect(self::$blog_post);
+    }
+
+    public static function find($slug)
+    {
+        $post  = static::all();
+        return $post->firstwhere('slug', $slug);
     }
 }
