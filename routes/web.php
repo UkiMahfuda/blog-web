@@ -3,6 +3,8 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,28 +64,10 @@ use App\Http\Controllers\PostController;
 // });
 
 //Route Blade template
-Route::get('/', function () {
-    return view('home', [
-        'title' => 'Home',
-        'name' => 'Uki',
-        'role' => 'Admin',
-        'employe' => [
-            'Agus',
-            'Rizky',
-            'Angga',
-            'Putra',
-            'Putri'
-        ]
-    ]);
-});
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/about', function () {
-    return view('about', [
-        'title' => 'About',
-        'name' => 'Uki',
-    ]);
-});
+Route::get('/about', [AboutController::class, 'index']);
 
 Route::get('/blog', [PostController::class, 'index']);
 
-Route::get('/blog/{slug}', [PostController::class, 'show']);
+Route::get('/blog/{blog:slug}', [PostController::class, 'show']);
