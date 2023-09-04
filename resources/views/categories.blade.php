@@ -14,4 +14,6 @@
             </li>
         </ul>
     @endforeach
+
+    <a href="\blog">Back</a>
 @endsection
