@@ -9,11 +9,11 @@
         <ul>
             <li>
                 <h4>
-                    <a href="/categories/{{ $category->slug }}">{{ $category->name }} </a>
+                    <a href="/categories/{{ $category->slug }}" class="text-decoration-none">{{ $category->name }} </a>
                 </h4>
             </li>
         </ul>
     @endforeach
 
-    <a href="\blog">Back</a>
+    <a href="\blog" class="text-decoration-none">Back</a>
 @endsection

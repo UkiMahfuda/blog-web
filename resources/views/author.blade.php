@@ -7,7 +7,7 @@
         <h4>
             {{ $p->title }}
         </h4>
-        <h6>By <a href="/authors/{{ $p->author->username }}" class="text-decoration-none">{{ $p->author->name }}</a> as <a
+        <h6>By <a href="/author/{{ $p->user->username }}" class="text-decoration-none">{{ $p->user->name }}</a> as <a
                 href="/categories/{{ $p->category->slug }}" class="text-decoration-none">
                 {{ $p->category->name }} </a>
         </h6>
