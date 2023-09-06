@@ -12,6 +12,7 @@ class Post extends Model
     use HasFactory;
     // protected $fillable = ['title', 'author', 'excerpt', 'body'];
     protected $guarded = ['id'];
+    protected $with = ['category', 'author'];
 
     //Connect model post to model category
     public function category()

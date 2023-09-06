@@ -12,6 +12,7 @@
                 href="/categories/{{ $p->category->slug }}" class="text-decoration-none">
                 {{ $p->category->name }} </a>
         </h6>
+        <small>{{ $p->created_at->diffForHumans() }}</small>
         <p>{{ $p->excerpt }}</p>
         <a href="/blog/{{ $p->slug }}" class="text-decoration-none">
             <p>
