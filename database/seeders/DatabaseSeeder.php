@@ -52,18 +52,19 @@ class DatabaseSeeder extends Seeder
         //     'user_id' => 1
         // ]);
 
-        User::factory(3)->create();
 
-        Category::create([
-            'name' => 'Graphic Design',
-            'slug' => 'graphic-design'
-        ]);
-        Category::create([
-            'name' => 'Progammer',
-            'slug' => 'programmer'
-        ]);
+        // Category::create([
+        //     'name' => 'Graphic Design',
+        //     'slug' => 'graphic-design'
+        // ]);
+        // Category::create([
+        //     'name' => 'Progammer',
+        //     'slug' => 'programmer'
+        // ]);
 
-        Post::factory(10)->create();
+        User::factory(4)->create();
+        Category::factory(3)->create();
+        Post::factory(15)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

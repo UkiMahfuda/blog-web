@@ -47,3 +47,5 @@ class Post
 
 //make model with migration factory and seeder
 //php artisan make:model example -mfs
+//php artisan make:migrate --seed
+//php artisan db:seed

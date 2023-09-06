@@ -3,6 +3,7 @@
 @extends('layout.mainlayout')
 
 @section('content')
+    <h1>{{ $title }}</h1>
     @foreach ($post as $p)
         <h4>
             {{ $p->title }}

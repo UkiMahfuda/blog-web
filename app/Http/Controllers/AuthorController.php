@@ -10,8 +10,8 @@ class AuthorController extends Controller
     public function author(User $author)
     {
         return view('blog', [
-            'title' => 'User Post',
-            'post' => $author->post
+            'title' => "List by Author :$author->name",
+            'post' => $author->post->load('category', 'author')
         ]);
     }
 }
