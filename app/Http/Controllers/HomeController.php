@@ -12,6 +12,7 @@ class HomeController extends Controller
             'title' => 'Home',
             'name' => 'Uki',
             'role' => 'Admin',
+            'active' => 'home',
             'employe' => [
                 'Agus',
                 'Rizky',

@@ -14,6 +14,24 @@ class Post extends Model
     protected $guarded = ['id'];
     protected $with = ['category', 'author'];
 
+    //searching
+    public function scopeFilter($query, array $filters)
+    {
+
+        $query->when($filters['search'] ?? false, function ($query, $search) {
+            return $query->where(function ($query) use ($search) {
+                $query->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('slug', 'like', '%' . $search . '%');
+            });
+        });
+
+        $query->when($filters['category'] ?? false, function ($query, $category) {
+            return $query->whereHas('category', function ($query) use ($category) {
+                $query->where('slug', $category);
+            });
+        });
+    }
+
     //Connect model post to model category
     public function category()
     {

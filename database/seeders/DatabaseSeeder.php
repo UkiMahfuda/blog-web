@@ -62,9 +62,9 @@ class DatabaseSeeder extends Seeder
         //     'slug' => 'programmer'
         // ]);
 
-        User::factory(4)->create();
-        Category::factory(3)->create();
-        Post::factory(15)->create();
+        User::factory(3)->create();
+        Category::factory(4)->create();
+        Post::factory(20)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
