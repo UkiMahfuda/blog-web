@@ -53,17 +53,21 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-        // Category::create([
-        //     'name' => 'Graphic Design',
-        //     'slug' => 'graphic-design'
-        // ]);
-        // Category::create([
-        //     'name' => 'Progammer',
-        //     'slug' => 'programmer'
-        // ]);
+        Category::create([
+            'name' => 'Graphic Design',
+            'slug' => 'graphic-design'
+        ]);
+        Category::create([
+            'name' => 'Progammer',
+            'slug' => 'programmer'
+        ]);
+        Category::create([
+            'name' => 'Web Design',
+            'slug' => 'web-design'
+        ]);
 
-        User::factory(3)->create();
-        Category::factory(4)->create();
+        User::factory(4)->create();
+        // Category::factory(4)->create();
         Post::factory(20)->create();
 
         // \App\Models\User::factory()->create([

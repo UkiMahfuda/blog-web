@@ -10,6 +10,8 @@
                 <form action="/blog" method="GET">
                     @if (request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
+                    @else
+                        <input type="hidden" name="author" value="{{ request('author') }}">
                     @endif
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Search Blog?" name="search"
@@ -28,7 +30,7 @@
                     <h4 class="card-title text-black">{{ $post[0]->title }}</h4>
                 </a>
                 <small>
-                    <h6>By <a href="/authors/{{ $post[0]->author->username }}"
+                    <h6>By <a href="/blog?author={{ $post[0]->author->username }}"
                             class="text-decoration-none">{{ $post[0]->author->name }}</a>
                         as <a href="/blog?category={{ $post[0]->category->slug }}" class="text-decoration-none">
                             {{ $post[0]->category->name }} </a>
@@ -78,7 +80,7 @@
                                 </a>
                                 <small>
                                     <h6>
-                                        By <a href="/authors/{{ $p->author->username }}"
+                                        By <a href="/blog?author={{ $p->author->username }}"
                                             class="text-decoration-none">{{ $p->author->name }}</a>
                                     </h6>
                                     {{-- <h6>
@@ -103,6 +105,8 @@
     @else
         <p class="text-center text-danger">No Post Found</p>
     @endif
+    {{ $post->links() }}
+
 
     {{-- @foreach ($post->skip(1) as $p)
         <h4>
