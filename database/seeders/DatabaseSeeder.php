@@ -65,8 +65,25 @@ class DatabaseSeeder extends Seeder
             'name' => 'Web Design',
             'slug' => 'web-design'
         ]);
-
-        User::factory(4)->create();
+        User::create([
+            'name' => 'Uki Mahfuda',
+            'username' => 'ukimahfuda',
+            'email' => 'mahfuda@gmail.com',
+            'password' => bcrypt('pass')
+        ]);
+        User::create([
+            'name' => 'Akhfee Lauki',
+            'username' => 'akhfeelauki',
+            'email' => 'lauki@gmail.com',
+            'password' => bcrypt('pass')
+        ]);
+        User::create([
+            'name' => 'Mahfuda',
+            'username' => 'mahfuda',
+            'email' => 'uki@gmail.com',
+            'password' => bcrypt('pass')
+        ]);
+        // User::factory(4)->create();
         // Category::factory(4)->create();
         Post::factory(20)->create();
 
