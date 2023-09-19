@@ -2,10 +2,19 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">My Post.</h1>
+        <h1 class="h2">My Post</h1>
     </div>
 
     <div class="table-responsive small">
+
+        <a href="/dashboard/posts/create" class="btn btn-primary">Create New Post</a>
+
+        @if (session()->has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -22,7 +31,8 @@
                         <td>{{ $p->title }}</td>
                         <td>{{ $p->category->name }}</td>
                         <td>
-                            <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-info"><i class="bi bi-eye"></i></a>
+                            <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-info"><i
+                                    class="bi bi-eye"></i></a>
                             <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-warning"><i
                                     class="bi bi-pencil"></i></a>
                             <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-danger"><i

@@ -15,7 +15,7 @@
                             <label for="floatingInput">Name</label>
                             @error('name')
                                 <div class="invalid-feedback">
-                                    {{-- Please choose a name. --}}{{ $message }}
+                                    {{ $message }}
                                 </div>
                             @enderror
                         </div>
