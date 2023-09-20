@@ -38,13 +38,15 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 text-dark  {{ Request::is('/logout') ? 'active' : '' }} "
-                        href="#">
-                        <svg class="bi">
-                            <use xlink:href="#door-closed" />
-                        </svg>
-                        Logout
-                    </a>
+                    <form action="/logout" method="post">
+                        @csrf
+                        <button type="submit" class="">
+                            <svg class="bi">
+                                <use xlink:href="#door-closed" />
+                            </svg>
+                            Logout
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>

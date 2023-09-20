@@ -10,11 +10,13 @@
         <a href="/dashboard/posts/create" class="btn btn-primary">Create New Post</a>
 
         @if (session()->has('success'))
-            <div class="alert alert-success" role="alert">
-                {{ session('success') }}
+            <div class="col-md-8">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
         @endif
-
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -33,10 +35,16 @@
                         <td>
                             <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-info"><i
                                     class="bi bi-eye"></i></a>
-                            <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-warning"><i
+                            <a href="/dashboard/posts/{{ $p->slug }}/edit" class="btn btn-warning"><i
                                     class="bi bi-pencil"></i></a>
-                            <a href="/dashboard/posts/{{ $p->slug }}" class="btn btn-danger"><i
-                                    class="bi bi-archive"></i></a>
+
+                            <form action="/dashboard/posts/{{ $p->slug }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="btn bg-danger border-0" onclick="return confirm('Delete This Post?')">
+                                    <i class="bi bi-archive"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
