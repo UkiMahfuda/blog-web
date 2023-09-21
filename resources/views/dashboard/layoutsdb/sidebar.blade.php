@@ -7,6 +7,9 @@
                 aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-1 mb-1 text-muted">
+                <span>Menu</span>
+            </h6>
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center gap-2 text-dark  {{ Request::is('dashboard') ? 'active text-blue' : '' }} "
@@ -27,14 +30,35 @@
                     </a>
                 </li>
             </ul>
+            @can('isAdmin')
+                <hr class="my-3">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-1 mb-1 text-muted">
+                    <span>Administrator</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center gap-2 text-dark  {{ Request::is('dashboard/categories') ? 'active text-blue' : '' }} "
+                            href="/dashboard/categories">
+                            <svg class="bi">
+                                <use xlink:href="#file-earmark" />
+                            </svg>
+                            Category
+                        </a>
+                    </li>
+                </ul>
+            @endcan
             <hr class="my-3">
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-1 mb-1 text-muted">
+                <span>Settings</span>
+            </h6>
             <ul class="nav flex-column mb-auto">
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 text-dark  disabled " href="#">
+                    <a class="nav-link d-flex align-items-center gap-2 text-dark  {{ Request::is('/blog') ? 'active text-blue' : '' }} "
+                        href="/blog">
                         <svg class="bi">
                             <use xlink:href="#gear-wide-connected" />
                         </svg>
-                        Settings
+                        Back to All Blog
                     </a>
                 </li>
                 <li class="nav-item">
